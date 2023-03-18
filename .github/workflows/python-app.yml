@@ -5,7 +5,7 @@ name: Python application
 
 on:
   schedule:
-    - cron: '0 40 23 ? * MON,TUE,WED,THU,SUN *'
+    - cron: '40 23 * * MON,TUE,WED,THU,SUN'
 
 jobs:
   build:
@@ -24,4 +24,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run_themore
       run: |
-        python3 themore.py
+        python themore.py
