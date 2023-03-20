@@ -21,4 +21,4 @@ jobs:
         python -m pip install selenium
     - name: Run_themore
       run: |
-        python themore.py
+        python3 themore.py
