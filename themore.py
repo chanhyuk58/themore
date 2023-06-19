@@ -31,8 +31,8 @@ with open('recent.json') as f:
 if recent['date'] == today:
     exit()
 else:
-    import rate
-    exrate = rate.exrate
+    import rate2
+    exrate = rate2.exrate
 
 temp = round_down((5988 / exrate) * 0.989, 2)
 
