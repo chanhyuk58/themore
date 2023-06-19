@@ -2,6 +2,8 @@ import math
 import json
 import datetime
 import csv
+import os
+import sys
 
 def round_down(value, decimals):
     return math.trunc(value*(10**decimals))/(10**decimals)
@@ -22,8 +24,10 @@ def themore(price_dollar, exrate):
 
 today = datetime.datetime.today().strftime('%Y%m%d')
 
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
 # Load 'recent.json'
-with open('recent.json') as f:
+with open(os.path.join(base_dir, 'recent.json')) as f:
     recent = json.load(f)
     f.close()
 
@@ -49,9 +53,9 @@ out2 = {
     "won":themore(temp, exrate)
 }
 
-with open('history.csv', 'a') as f:
+with open(os.path.join(base_dir, 'history.csv'), 'a') as f:
     writer = csv.writer(f)
     writer.writerow(out)
     
-with open('recent.json', 'w') as f:
+with open(os.path.join(base_dir, 'recent.json'), 'w') as f:
     json.dump(out2, f, indent = 2)
